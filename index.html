@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>City Picker</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+    <!--Main Part-->
+    <div class="container">
+        <h3>一个三级省市选择器</h3>
+            <div class="dome-main">
+                <div class="city-picker-selector" id="city-picker-selector">
+                <!--End of div-->
+                <!--Nothing really to put here-->
+                </div>
+                <div class="code">
+                    <a href="javascript:;" class="show-code">code</a>
+                    <pre>
+                        <code>
+                            var selector2 = $('#city-picker-selector2').cityPicker({
+                                dataJson: cityData,
+                                renderMode: true,
+                                search: false,
+                                autoSelected: true,
+                                code: 'cityCode',
+                                level: 3,
+                                onChoiceEnd: function() {
+                                    console.log(this.values)
+                                }
+                            });
+
+                            // 设置城市
+                            selector2.setCityVal('广东省, 广州市, 天河区');
+                        </code>
+                    </pre>
+                </div>
+                <!-- end .code -->
+            </div>
+    </div>
+
+
+    <!--Import JQuery-->
+    <script src="https://cdn.bootcss.com/jquery/1.10.0/jquery.js"></script>
+    <!--Import CityPicker-->
+    <script type="text/javascript" src="js/citydata.min.js"></script>
+    <script type="text/javascript" src="js/cityPicker-2.0.2.js"></script>
+    <!--Function part-->
+    <script type="text/javascript">
+        $(function () {
+            // 显示代码
+            $('.show-code').on('click', function (event) {
+                var $this = $(this);
+
+                $this.next('pre').slideToggle(500);
+            });
+        var selector = $('#city-picker-selector').cityPicker({
+            dataJson: cityData,
+            renderMode: true,
+            search: true,
+            autoSelected: true,
+            keyboard: true,
+            level: 3,
+            onChoiceEnd: function() {
+                console.log(this.values)
+            }
+        });
+            // 设置城市
+            selector.setCityVal('广东省, 广州市, 天河区');
+        });
+    </script>
+</body>
+</html>
